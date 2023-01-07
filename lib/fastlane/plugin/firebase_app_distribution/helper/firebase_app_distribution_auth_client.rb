@@ -32,6 +32,9 @@ module Fastlane
         elsif !ENV["FIREBASE_TOKEN"].nil? && !ENV["FIREBASE_TOKEN"].empty?
           UI.message("🔐 Authenticating with FIREBASE_TOKEN environment variable")
           token = firebase_token(ENV["FIREBASE_TOKEN"], debug)
+        elsif !ENV["FIREBASE_ACCESS_TOKEN"].nil? && !ENV["FIREBASE_ACCESS_TOKEN"].empty?
+          UI.message("🔐 Authenticating with FIREBASE_ACCESS_TOKEN environment variable")
+          token = ENV["FIREBASE_ACCESS_TOKEN"]
         elsif !ENV["GOOGLE_APPLICATION_CREDENTIALS"].nil? && !ENV["GOOGLE_APPLICATION_CREDENTIALS"].empty?
           UI.message("🔐 Authenticating with GOOGLE_APPLICATION_CREDENTIALS environment variable: #{ENV['GOOGLE_APPLICATION_CREDENTIALS']}")
           token = service_account(ENV["GOOGLE_APPLICATION_CREDENTIALS"], debug)
